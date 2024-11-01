@@ -2,10 +2,11 @@ name: CI/CD
 
 on:
   push:
-      branches: ["main"]
+    branches: ["main"]
   pull_request:
     types: [closed]
-    branches: [ "main"]
+    branches: ["main"]
+  workflow_dispatch:  # 수동 트리거 추가
 
 permissions:  
   contents: read
