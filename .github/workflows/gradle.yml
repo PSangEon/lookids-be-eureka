@@ -80,7 +80,7 @@ jobs:
         aws ssm send-command \
           --document-name "AWS-RunShellScript" \
           --targets '[{"Key":"InstanceIds","Values":["${{ secrets.EC2_INSTANCE_ID }}"]}]' \
-          --parameters 'commands=["sudo docker pull ${{ secrets.DOCKER_REPO }}/eureka", "sudo docker run -d --name eureka --network ubuntu_default -p 8761:8761 ${{ secrets.DOCKER_REPO }}/eureka"]' \
+          --parameters 'commands=["sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:eureka", "sudo docker run -d --name eureka --network ubuntu_default -p 8761:8761 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:eureka"]' \
           --comment "Deploying new Docker container" \
           --region ap-northeast-2
 
